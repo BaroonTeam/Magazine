@@ -14,6 +14,7 @@ require('./jquery.mCustomScrollbar.concat.min');
 require('./jquery.min');
 require('./jquery.newsTicker');
 require('./RYPP');
+require('./owl.carousel.min');
 require('./wow.min');
 window.Vue = require('vue');
 

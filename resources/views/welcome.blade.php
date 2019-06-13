@@ -26,174 +26,11 @@
         <link href="css/app.css" rel="stylesheet">
     </head>
     <body>
-  
+            @extends('layouts.app')
+
+            @section('content')   
             <div class="se-pre-con" style="display: none;"></div>
-            <header>
-                <!-- Mobile Menu Start -->
-                
-                <!-- Mobile Menu End -->
-                <!-- top header -->
-                <div class="top_header hidden-xs">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-3 col-md-3">
-                                <div class="top_header_menu_wrap">
-                                    <ul class="top-header-menu">
-                                        <li><a href="login&amp;registration.html">تسجيل</a></li>
-                                        <li class="dropdown">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">تسجيل الدخول</a>
-                                            <ul class="dropdown-menu">
-                                                <li>
-                                                    <div class="login-inner">
-                                                        <input type="text" class="form-control" id="name_email" name="name_email" placeholder="اسم المستخدم أو البريد الالكتروني">
-                                                        <hr>
-                                                        <input type="password" class="form-control" id="pass" name="pass" placeholder="*******">
-                                                        <label class="checkbox-inline"><input type="checkbox" value="">تذكرنى</label>
-                                                        <button type="button" class="btn btn-lr btn-active">الدخول في</button>
-                                                        <button type="button" class="btn btn-lr">تسجيل</button>
-                                                        <div class="foeget"><a href="#">نسيت اسم المستخدم / كلمة السر؟</a></div>
-                                                        <div class="social_icon">
-                                                            <div class="social_icon_box social_icon_box_1">
-                                                                <div class="icon facebook-icon"></div>
-                                                                <span class="social_info">الدخول في مع الفيسبوك</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="social_icon">
-                                                            <div class="social_icon_box social_icon_box_2">
-                                                                <div class="icon twitter-icon"></div>
-                                                                <span class="social_info">تسجيل الدخول عبر تويتر</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="contact-style-two.html">اتصال</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!--breaking news-->
-                            
-                            <div class="col-sm-8 col-md-8 hidden-sm">
-                                <div class="top_header_icon">
-                                    <span class="top_header_icon_wrap">
-                                        <a target="_blank" href="#" title="Twitter"><i class="fa fa-twitter"></i></a>
-                                    </span>
-                                    <span class="top_header_icon_wrap">
-                                        <a target="_blank" href="#" title="Facebook"><i class="fa fa-facebook"></i></a>
-                                    </span>
-                                    <span class="top_header_icon_wrap">
-                                        <a target="_blank" href="#" title="Google"><i class="fa fa-google-plus"></i></a>
-                                    </span>
-                                    <span class="top_header_icon_wrap">
-                                        <a target="_blank" href="#" title="Vimeo"><i class="fa fa-vimeo"></i></a>
-                                    </span>
-                                    <span class="top_header_icon_wrap">
-                                        <a target="_blank" href="#" title="Pintereset"><i class="fa fa-pinterest-p"></i></a>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="top_banner_wrap">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-xs-12 col-md-4 col-sm-4">
-                                <div class="header-logo">  <!-- logo -->
-                                    <a href="home-style-one.html">
-                                        <img class="td-retina-data img-responsive" src="images/logo.png" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                      
-                        </div>
-                    </div>
-                </div>
-                <!-- main navber -->
-                <div class="container hidden-xs">
-                    <nav class="navbar">
-                        <div class="collapse navbar-collapse">
-                            <ul class="nav navbar-nav">
-                                <li class="active"><a href="home-style-one.html" class="category01">الصفحة الرئيسية</a></li>
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle category02" data-toggle="dropdown">كل الصفحات<span class="pe-7s-angle-down"></span></a>
-                                    <ul class="dropdown-menu menu-slide"> 
-                                        <li class="dropdown-submenu"><a href="#">الصفحة الرئيسية</a>
-                                            <ul class="dropdown-menu zoomIn">
-                                                <li><a href="home-style-one.html">منزل نمط واحد</a></li>
-                                                <li><a href="home-style-two.html">نمط المنزل اثنين</a></li> 
-                                            </ul>
-                                        </li>
-                                        <li class="dropdown-submenu"><a href="#">الفئات</a>
-                                            <ul class="dropdown-menu zoomIn">
-                                                <li><a href="category-style-one.html">فئة نمط واحد</a></li>
-                                                <li><a href="category-style-two.html">فئة أسلوب اثنين</a></li>
-                                                <li><a href="category-style-three.html">فئة أسلوب ثلاثة</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="dropdown-submenu"><a href="#">أرشيف</a>
-                                            <ul class="dropdown-menu zoomIn">
-                                                <li><a href="archive-one.html">أسلوب أرشيف واحد</a></li>
-                                                <li><a href="archive-two.html">أرشيف أسلوب اثنين</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="dropdown-submenu"><a href="#">أخبار</a>
-                                            <ul class="dropdown-menu zoomIn">
-                                                <li><a href="details-style-one.html">أخبار وظيفة واحدة</a></li>
-                                                <li><a href="details-style-two.html">آخر الأخبار اثنين</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="dropdown-submenu"><a href="#">اتصال</a>
-                                            <ul class="dropdown-menu zoomIn">
-                                                <li><a href="contact-style-one.html">الاتصال نمط واحد</a> </li>
-                                                <li><a href="contact-style-two.html">أسلوب الاتصال اثنين</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="login&amp;registration.html">تسجيل الدخول والتسجيل</a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle category03" data-toggle="dropdown">دولي <span class="pe-7s-angle-down"></span></a>
-                                    <ul class="dropdown-menu menu-slide">
-                                        <li><a href="#">أحياناً عن طريق</a></li>
-                                        <li class="dropdown-submenu"><a href="#">هناك حقيقة مثبتة منذ زمن</a>
-                                            <ul class="dropdown-menu zoomIn">
-                                                <li><a href="#">لوريم إيبسوم</a></li>
-                                                <li><a href="#">خلافاَ للإعتقاد السائد</a></li>
-                                                <li><a href="#">فلقد اتضح أن</a></li>
-                                                <li><a href="#">هنالك العديد من</a></li>
-                                                <li><a href="#">أحياناً عن طريق</a></li>
-                                                <li><a href="#">هنالك العديد من</a></li>
-                                                <li><a href="#">بينما تعمل جميع</a></li>
-                                            </ul>
-                                        </li>
-                                        <!--<li class="divider"></li>-->
-                                        <li><a href="#">على أكثر من</a></li>
-                                        <li><a href="#">هنالك العديد من</a></li>
-                                        <li><a href="#">لمهتمين قمنا بوضع</a></li>
-                                        <li><a href="#">إيبسوم ذو شكل</a></li>
-                                        <li><a href="#">إدخال بعض</a></li>
-                                        <li><a href="#">عليك أن تتحقق</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="category-style-two.html" class="category04">موضة</a></li>
-                                <li><a href="category-style-one.html" class="category05">سفر</a></li>
-                                <li><a href="#" class="category06">طعام</a></li>
-                                <li><a href="#" class="category07">تكنولوجيا</a></li>
-                                <li><a href="#" class="category08">نمط الحياة</a></li>
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle category09" data-toggle="dropdown">اتصال <span class="pe-7s-angle-down"></span></a>
-                                    <ul class="dropdown-menu menu-slide">
-                                        <li><a href="contact-style-one.html">الاتصال نمط واحد</a> </li>
-                                        <li><a href="contact-style-two.html">أسلوب الاتصال اثنين</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div><!-- navbar-collapse -->
-                    </nav>
-                </div>
-            </header>	
+     
             <section class="news-feed">
                 <div class="container">
                     <div class="row row-margin">
@@ -1210,26 +1047,8 @@
                     </div>
                 </div>
             </footer>
-            <div class="sub-footer">  <!-- sub footer -->
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <p><a href="" class="color-1">bdtask</a> موضوع | جميع الحقوق محفوظة 2016</p>
-                            <div class="social">
-                                <ul>
-                                    <li><a href="#" class="facebook"><i class="fa  fa-facebook"></i> </a></li>
-                                    <li><a href="#" class="twitter"><i class="fa  fa-twitter"></i></a></li>
-                                    <li><a href="#" class="google"><i class="fa  fa-google-plus"></i></a></li>
-                                    <li><a href="#" class="flickr"><i class="fa fa-flickr"></i></a></li>
-                                    <li><a href="#" class="youtube"><i class="fa fa-youtube"></i></a></li>
-                                    <li><a href="#" class="vimeo"><i class="fa fa-vimeo"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> <!-- /.sub footer -->
-    
+   
+            @endsection
     
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   
