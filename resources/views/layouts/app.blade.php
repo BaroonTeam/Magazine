@@ -32,10 +32,10 @@
                                               <!-- Authentication Links -->
                         @guest
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('تسجيل') }}</a>
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('تسجيل الدخول') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('تسجيل الدخول') }}</a>
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('تسجيل ') }}</a>
                         </li>
                     @else
                         <li class="nav-item dropdown">
@@ -160,6 +160,9 @@
                                             <li><a href="contact-style-two.html">أسلوب الاتصال اثنين</a></li>
                                         </ul>
                                     </li>
+                                    @if(Auth::check())
+                                    <li><a href="/magazine" class="category04">اضافة مجلة</a></li>
+                                    @endif
                                 </ul>
                             </div><!-- navbar-collapse -->
                         </nav>
