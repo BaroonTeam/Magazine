@@ -8,6 +8,9 @@ class Magazine extends Model
 {
 
     protected $fillable = [
-        'name', 'path'
+        'magazine_name', 'is_active', 'pdf_path', 'channel_id', 'cover_path'
     ];
+    public function articles(){
+        return $this->hasMany('App\Article');
+    }
 }

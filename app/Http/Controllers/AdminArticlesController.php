@@ -3,22 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Magazine;
-class MagazineController extends Controller
+use App\Article;
+
+class AdminArticlesController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
-
     public function index()
     {
+        //
     }
 
     /**
@@ -28,7 +24,7 @@ class MagazineController extends Controller
      */
     public function create()
     {
-        return view('magazine.create');        
+        //
     }
 
     /**
@@ -39,27 +35,7 @@ class MagazineController extends Controller
      */
     public function store(Request $request)
     {
-        // $magazine=new Magazine();
-        // $magazine->name= request('magazine_name');
-        // $magazine->path= request('path');
-        // $magazine->created_at= request('date');
-        Magazine::create($request->all());
-
-
-        // $rules = array(
-        //     'path' => 'required | mimes:pdf',
-        // );
-
-        // $validator = Validator::make($request->all(), $rules);
-
-        // if ($validator->fails()) {
-        //     return Redirect::back()
-        //         ->withErrors($validator)
-        //         ->withInput();
-        // }
-        // $magazine->save();
-        // return $magazine;
-        // return redirect('welcome');
+        //
     }
 
     /**
@@ -94,6 +70,10 @@ class MagazineController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $article = Article::findOrFail($id);
+        $article->is_active == 1 ? $article->is_active = 0 : $article->is_active = 1;
+        $article->save();
+        return redirect('/admin');
     }
 
     /**
@@ -104,6 +84,8 @@ class MagazineController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //Delete and redirect to the same page
+        Article::findOrFail($id)->delete();
+        return redirect('/admin');
     }
 }

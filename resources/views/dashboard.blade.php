@@ -1,32 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- Favicon -->
-        <link rel="shortcut icon" href="images/fev-icon.png"/>
-        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-        <title>newspaper</title>
-        <!-- google fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i|Ubuntu:300,300i,400,400i,500,500i,700,700i" rel="stylesheet">
-        <!-- Bootstrap -->
-        <!-- Bootstrap RTL Theme -->
-        <!-- Scrollbar css -->
-        <!-- Owl Carousel css -->
-        <link href="owl-carousel/owl.carousel.min.css" rel="stylesheet" type="text/css"/>
-        <link href="owl-carousel/owl.theme.default.min.css" rel="stylesheet" type="text/css"/>
-        <!-- youtube css -->
- 
-     
-        <!-- fonts css -->
-        <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
-
-        <!-- custom css -->
-        <link href="css/app.css" rel="stylesheet">
-    </head>
-    <body>
-            @extends('layouts.app')
+@extends('layouts.app')
 
             @section('content')   
             <div class="se-pre-con" style="display: none;"></div>
@@ -57,75 +29,25 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xs-12 col-md-6 col-sm-6 col-padding">
-                            <div id="news-feed-carousel" class="owl-carousel owl-theme">
-                                <div class="item">
-                                    <div class="post-wrapper wow fadeIn" data-wow-duration="2s">
-                                        <div class="post-thumb img-zoom-in">
-                                            <a href="#">
-                                                <img class="entry-thumb" src="images/slider/slide-02.jpg" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="post-info">
-                                            <span class="color-2">FASHION </span>
-                                            <h3 class="post-title"><a href="#" rel="bookmark">للمهتمين قمنا بوضع نص لوريم إبسوم القياسي والمُستخدم منذ القرن الخامس عشر في الأسفل.</a></h3>
-                                            <div class="post-editor-date">
-                                                <!-- post date -->
-                                                <div class="post-date">
-                                                    <i class="pe-7s-clock"></i> ديسمبر ٢٠ ، ٢٠١٦
-                                                </div>
-                                                <!-- post comment -->
-                                                <div class="post-author-comment"><i class="pe-7s-comment"></i> ١٣ </div>
-                                                <!-- read more -->
-                                                <a class="readmore pull-left" href="#"><i class="pe-7s-angle-right"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
+                        <div class="col-md-6">
+                            <div class="post-wrapper wow fadeIn" data-wow-duration="2s">
+                                <div class="post-thumb img-zoom-in">
+                                    <a href="#">
+                                        <img class="entry-thumb" src="images/slider/slide-01.jpg" alt="">
+                                    </a>
                                 </div>
-                                <div class="item">
-                                    <div class="post-wrapper wow fadeIn" data-wow-duration="2s">
-                                        <div class="post-thumb img-zoom-in">
-                                            <a href="#">
-                                                <img class="entry-thumb" src="images/slider/slide-03.jpg" alt="">
-                                            </a>
+                                <div class="post-info">
+                                    <span class="color-1">موضة </span>
+                                    <h3 class="post-title post-title-size"><a href="#" rel="bookmark">هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة  </a></h3>
+                                    <div class="post-editor-date">
+                                        <!-- post date -->
+                                        <div class="post-date">
+                                            <i class="pe-7s-clock"></i> ديسمبر ٢٠ ، ٢٠١٦
                                         </div>
-                                        <div class="post-info">
-                                            <span class="color-3">FASHION </span>
-                                            <h3 class="post-title"><a href="#" rel="bookmark">خلافاَ للإعتقاد السائد فإن لوريم إيبسوم ليس نصاَ عشوائياً، بل إن له جذور في الأدب</a></h3>
-                                            <div class="post-editor-date">
-                                                <!-- post date -->
-                                                <div class="post-date">
-                                                    <i class="pe-7s-clock"></i> ديسمبر ٢٠ ، ٢٠١٦
-                                                </div>
-                                                <!-- post comment -->
-                                                <div class="post-author-comment"><i class="pe-7s-comment"></i> ١٣ </div>
-                                                <!-- read more -->
-                                                <a class="readmore pull-left" href="#"><i class="pe-7s-angle-right"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="post-wrapper wow fadeIn" data-wow-duration="2s">
-                                        <div class="post-thumb img-zoom-in">
-                                            <a href="#">
-                                                <img class="entry-thumb" src="images/slider/slide-04.jpg" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="post-info">
-                                            <span class="color-4">FASHION </span>
-                                            <h3 class="post-title"><a href="#" rel="bookmark">هنالك العديد من الأنواع المتوفرة لنصوص لوريم إيبسوم، ولكن الغالبية تم تعديلها بشكل</a></h3>
-                                            <div class="post-editor-date">
-                                                <!-- post date -->
-                                                <div class="post-date">
-                                                    <i class="pe-7s-clock"></i> ديسمبر ٢٠ ، ٢٠١٦
-                                                </div>
-                                                <!-- post comment -->
-                                                <div class="post-author-comment"><i class="pe-7s-comment"></i> ١٣ </div>
-                                                <!-- read more -->
-                                                <a class="readmore pull-left" href="#"><i class="pe-7s-angle-right"></i></a>
-                                            </div>
-                                        </div>
+                                        <!-- post comment -->
+                                        <div class="post-author-comment"><i class="pe-7s-comment"></i> ١٣ </div>
+                                        <!-- read more -->
+                                        <a class="readmore pull-left" href="#"><i class="pe-7s-angle-right"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -163,7 +85,7 @@
                             <h3 class="category-headding ">أخبار حديثة</h3>
                             <div class="headding-border"></div>
                             <div class="row">
-                                <div id="content-slide" class="owl-carousel">
+                                <div id="content-slide" class="owlousel">
                                     <!-- item-1 -->
                                     <div class="item">
                                         <div class="post-wrapper wow fadeIn" data-wow-duration="1s"><!-- image -->
@@ -514,7 +436,8 @@
                                 <h3 class="category-headding ">مقالة</h3>
                                 <div class="headding-border"></div>
                                 <div class="row">
-                                    <div id="content-slide-5" class="owl-carousel">
+
+                                    <div id="content-slide-5" class="owlsel">
                                         <!-- item-1 -->
                                         <div class="item">
                                             <div class="row rn_block">
@@ -1050,31 +973,3 @@
    
             @endsection
     
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-  
-        <!-- owl carousel js --> 
-        <script src="owl-carousel/owl.carousel.min.js" type="text/javascript"></script>
-     
-        <!-- Google map js -->
-       <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-EEPxbay_aFpp3jcFXpjyPQcVQUJ2pp0"></script>
-        <script>
-            google.maps.event.addDomListener(window, 'load', init);
-            function init() {
-                var mapOptions = {
-                    zoom: 11,
-                    center: new google.maps.LatLng(40.6700, -73.9400), // New York
-                    styles: [{"featureType": "water", "elementType": "geometry", "stylers": [{"color": "#e9e9e9"}, {"lightness": 17}]}, {"featureType": "landscape", "elementType": "geometry", "stylers": [{"color": "#f5f5f5"}, {"lightness": 20}]}, {"featureType": "road.highway", "elementType": "geometry.fill", "stylers": [{"color": "#ffffff"}, {"lightness": 17}]}, {"featureType": "road.highway", "elementType": "geometry.stroke", "stylers": [{"color": "#ffffff"}, {"lightness": 29}, {"weight": 0.2}]}, {"featureType": "road.arterial", "elementType": "geometry", "stylers": [{"color": "#ffffff"}, {"lightness": 18}]}, {"featureType": "road.local", "elementType": "geometry", "stylers": [{"color": "#ffffff"}, {"lightness": 16}]}, {"featureType": "poi", "elementType": "geometry", "stylers": [{"color": "#f5f5f5"}, {"lightness": 21}]}, {"featureType": "poi.park", "elementType": "geometry", "stylers": [{"color": "#dedede"}, {"lightness": 21}]}, {"elementType": "labels.text.stroke", "stylers": [{"visibility": "on"}, {"color": "#ffffff"}, {"lightness": 16}]}, {"elementType": "labels.text.fill", "stylers": [{"saturation": 36}, {"color": "#333333"}, {"lightness": 40}]}, {"elementType": "labels.icon", "stylers": [{"visibility": "off"}]}, {"featureType": "transit", "elementType": "geometry", "stylers": [{"color": "#f2f2f2"}, {"lightness": 19}]}, {"featureType": "administrative", "elementType": "geometry.fill", "stylers": [{"color": "#fefefe"}, {"lightness": 20}]}, {"featureType": "administrative", "elementType": "geometry.stroke", "stylers": [{"color": "#fefefe"}, {"lightness": 17}, {"weight": 1.2}]}]
-                };
-                var mapElement = document.getElementById('map');
-                var map = new google.maps.Map(mapElement, mapOptions);
-                var marker = new google.maps.Marker({
-                    position: new google.maps.LatLng(40.6700, -73.9400),
-                    map: map,
-                    title: 'Snazzy!'
-                });
-            }
-        </script>
-        <!-- custom js --> 
-        <script src="js/app.js"></script>
-    </body>
-</html>

@@ -161,8 +161,10 @@
                                         </ul>
                                     </li>
                                     @if(Auth::check())
-                                    <li><a href="/magazine" class="category04">اضافة مجلة</a></li>
+                                    <li><a href="/channels/create" class="category04">اضافة مجلة</a></li>
                                     @endif
+                                    <li><a href="/articles/create" class="category01">اضافة مقالة</a></li>
+                                    <li><a href="channels/magazines/0/articles" class="category01">جميع المقلات</a></li>
                                 </ul>
                             </div><!-- navbar-collapse -->
                         </nav>
@@ -178,13 +180,13 @@
             </nav>
     
      
-                @yield('content')
-           
+            @yield('content')
+            
+            
     
     
 
-    
-        <div class="sub-footer">  <!-- sub footer -->
+        <div class="sub-footer" style=" padding-bottom:-7.5rem">  <!-- sub footer -->
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12">
