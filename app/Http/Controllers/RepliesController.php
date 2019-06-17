@@ -1,11 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Comment;
+use App\Reply;
 use App\Article;
-
-class AdminArticlesController extends Controller
+class RepliesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +15,8 @@ class AdminArticlesController extends Controller
      */
     public function index()
     {
-
-
-
+         
+        
     }
 
     /**
@@ -35,9 +35,20 @@ class AdminArticlesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $comment_id)
     {
-        //
+        
+         $comment = Comment::findOrFail($comment_id);
+         $reply =new Reply;
+        $reply->reply_content = $request->reply_content;
+        $reply->username=$request->username;
+        if(Auth::check()){
+        auth()->user()->is_admin == 1 ? $reply->is_active = 1 : $reply->is_active = 0;
+        }
+             $comment->replies()->save($reply);
+            
+          return back();
+     
     }
 
     /**
@@ -48,7 +59,7 @@ class AdminArticlesController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -72,10 +83,6 @@ class AdminArticlesController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $article = Article::findOrFail($id);
-        $article->is_active == 1 ? $article->is_active = 0 : $article->is_active = 1;
-        $article->save();
-        return redirect('/admin');
     }
 
     /**
@@ -86,8 +93,6 @@ class AdminArticlesController extends Controller
      */
     public function destroy($id)
     {
-        //Delete and redirect to the same page
-        Article::findOrFail($id)->delete();
-        return redirect('/admin');
+        //
     }
 }

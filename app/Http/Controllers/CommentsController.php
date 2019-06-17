@@ -17,7 +17,7 @@ class CommentsController extends Controller
      */
     public function index()
     {
-      
+ 
     }
 
     /**
@@ -36,21 +36,19 @@ class CommentsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreateCommentRequest $request)
+    public function store(CreateCommentRequest $request, $article_id)
     {
     
-        // $articles = new Article;
-        // $comment =new Comment;
-    
-        //    $comment_content = $request->comment_content;
-        //    $article_id = $request->$articles;
-         
+        $article = Article::findOrFail($article_id);
+        $comment =new Comment;
+        $comment->comment_content = $request->comment_content;
+        $comment->username=$request->username;
+        if(Auth::check()){
+        auth()->user()->is_admin == 1 ? $comment->is_active = 1 : $comment->is_active = 0;
+        }
+           $article->comments()->save($comment);
             
-        //    $comment->save();
-     
-        // return back();
-
-
+           return back();
     }
 
     /**

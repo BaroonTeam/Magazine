@@ -3,19 +3,30 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Comment;
 use App\Article;
 
-class AdminArticlesController extends Controller
+class AdminCommentsController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('Admin');
+    }
+
     public function index()
     {
-
-
+        $comments=Comment::all();
+        $article=Article::all();
+     
+    
+        return view('admin.comments.index',compact('comments','article'));
 
     }
 
@@ -71,11 +82,11 @@ class AdminArticlesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-        $article = Article::findOrFail($id);
-        $article->is_active == 1 ? $article->is_active = 0 : $article->is_active = 1;
-        $article->save();
-        return redirect('/admin');
+        $comment = Comment::findOrFail($id);
+        //Check its status and reverse it
+        $comment->is_active == 0 ? $comment->is_active = 1 : $comment->is_active = 0;
+        $comment->save();
+        return redirect('/admin/comments');
     }
 
     /**
@@ -86,8 +97,8 @@ class AdminArticlesController extends Controller
      */
     public function destroy($id)
     {
-        //Delete and redirect to the same page
-        Article::findOrFail($id)->delete();
-        return redirect('/admin');
+          //
+          comment::findOrFail($id)->delete();
+          return redirect('/admin/comments');
     }
 }

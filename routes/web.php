@@ -29,5 +29,7 @@ Route::resource('/admin/articles', 'AdminArticlesController');
 Route::resource('/admin/categories', 'AdminCategoriesController');
 Route::resource('/admin/users', 'AdminUsersController');
 Route::get('/categories/{id}', 'CategoriesController@show');
-
-// Route::get('/channels/{id}/magazines/create', 'MagazinesController@create');
+Route::resource('/articles/{article_id}/comments', 'CommentsController');
+Route::resource('/admin/comments', 'AdminCommentsController');
+Route::resource('/comments/{comment_id}/replies', 'RepliesController');
+Route::resource('/admin/replies', 'AdminRepliesController');
