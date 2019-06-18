@@ -16,20 +16,26 @@ Route::get('/', 'HomeController@index');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
 Route::get('/admin', 'AdminController@index')->name('admin');
-
 Route::resource('/channels', 'ChannelsController');
-Route::resource('/admin/channels', 'AdminChannelsController');
+Route::resource('/admin/channels', 'AdminChannelsController', ['as'=>'admin']);
 Route::resource('/channels/{channel_id}/magazines', 'MagazinesController');
-Route::resource('/admin/magazines', 'AdminMagazinesController');
-Route::resource('/channels/magazines/{magazine_id}/articles', 'ArticlesController');
-Route::get('/articles/create', 'ArticlesController@createArticle');
-Route::resource('/admin/articles', 'AdminArticlesController');
-Route::resource('/admin/categories', 'AdminCategoriesController');
-Route::resource('/admin/users', 'AdminUsersController');
-Route::get('/categories/{id}', 'CategoriesController@show');
+Route::resource('/admin/magazines', 'AdminMagazinesController', ['as'=>'admin']);
+Route::resource('/magazines/{magazine_id}/articles', 'ArticlesController');
+Route::get('/articles/create', 'ArticlesController@createArticle')->name('create_article');
+Route::resource('/admin/articles', 'AdminArticlesController', ['as'=>'admin']);
+Route::resource('/admin/categories', 'AdminCategoriesController', ['as'=>'admin']);
+Route::resource('/admin/users', 'AdminUsersController', ['as'=>'admin']);
+Route::get('/categories/{category}', 'CategoriesController@show')->name('categories.show');
+Route::get('/articles/{article_id}/photos', 'PhotosController@create')->name('photos.create');
+Route::post('/articles/{article_id}/photos', 'PhotosController@store')->name('photos.store');
+Route::resource('/admin/sponsors', 'AdminSponsorsController', ['as'=>'admin']);
+Route::get('/admin/magazines/{magazine_id}/sponsors', 'AdminMagazinesController@addSponsor')->name('magazine.sponsors');
+Route::put('/admin/magazines/{magazine_id}/attach/{sponsor_id}', 'AdminMagazinesController@attachSponsor')->name('sponsor.attach');
+Route::put('/admin/magazines/{magazine_id}/detach/{sponsor_id}', 'AdminMagazinesController@detachSponsor')->name('sponsor.detach');
 Route::resource('/articles/{article_id}/comments', 'CommentsController');
-Route::resource('/admin/comments', 'AdminCommentsController');
+Route::resource('/admin/comments', 'AdminCommentsController', ['as'=>'admin']);
 Route::resource('/comments/{comment_id}/replies', 'RepliesController');
-Route::resource('/admin/replies', 'AdminRepliesController');
+Route::resource('/admin/replies', 'AdminRepliesController', ['as'=>'admin']);
+
+// Route::get('/channels/{id}/magazines/create', 'MagazinesController@create');

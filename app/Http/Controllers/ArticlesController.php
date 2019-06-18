@@ -66,15 +66,18 @@ class ArticlesController extends Controller
         //Check if user is logged in
         $user = Auth::user();
         $user ? $article->user_id = $user->id : $article->user_id = 0;
+        //If user is admin it will be autmatically active
+        $user->is_admin == 1 ? $article->is_active = 1 : $article->is_active = 0;
         //Assign the rest of information
         $article->article_title = $request->article_title;
         $article->article_content = $request->article_content;
         $article->category_id = $request->category_id;
         $article->save();
+
         if($request->magazine_id != 0){
-            return redirect('channels/'. $request->channel_id .'/magazines/'.$request->magazine_id);
+            return redirect('/articles/'. $article->id .'/photos');
         }
-        return redirect('/');  
+        return redirect()->route('photos.create', ['article_id'=>$article->id]); 
     }
 
     /**
@@ -87,13 +90,10 @@ class ArticlesController extends Controller
     {
         //
         $article = Article::findOrFail($id);
-        // $articles = Article::where('id','>','0')->orderBy('created_at', 'desc')->get();
-
         $comments = $article->comments()->where('is_active',1)->orderBy('created_at', 'desc')->get();
         if($article->is_active != 1){
             return redirect('/');
         }
-    
         return view('articles.show', compact('article', 'comments'));
     }
 

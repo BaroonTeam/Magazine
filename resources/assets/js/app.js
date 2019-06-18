@@ -16,6 +16,7 @@ require('./jquery.newsTicker');
 require('./RYPP');
 require('./owl');
 require('./wow.min');
+
 window.Vue = require('vue');
 
 /**
@@ -25,7 +26,8 @@ window.Vue = require('vue');
  */
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
-
-const app = new Vue({
-    el: '#app'
-});
+import BootstrapVue from 'bootstrap-vue';
+Vue.use(BootstrapVue);
+// const app = new Vue({
+//     el: '#app'
+// });
