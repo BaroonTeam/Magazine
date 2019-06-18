@@ -87,7 +87,9 @@ class ArticlesController extends Controller
     {
         //
         $article = Article::findOrFail($id);
-        $comments = $article->comments->where('is_active',1)->all();
+        // $articles = Article::where('id','>','0')->orderBy('created_at', 'desc')->get();
+
+        $comments = $article->comments()->where('is_active',1)->orderBy('created_at', 'desc')->get();
         if($article->is_active != 1){
             return redirect('/');
         }

@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Comment;
+use App\Reply;
 class AdminRepliesController extends Controller
 {
     /**
@@ -11,9 +12,17 @@ class AdminRepliesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('Admin');
+    }
     public function index()
     {
-      return view('admin.replies.index');
+
+   
+ 
     }
 
     /**
@@ -44,8 +53,13 @@ class AdminRepliesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        //
+    { 
+        $comments=Comment::all();
+        $replies = Reply::where('comment_id','=',$id)->get();
+        foreach ($replies as $reply)
+     
+    
+   return view('admin.replies.index',compact('comments','replies'));
     }
 
     /**
@@ -68,7 +82,11 @@ class AdminRepliesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $reply = Reply::findOrFail($id);
+        //Check its status and reverse it
+        $reply->is_active == 0 ? $reply->is_active = 1 : $reply->is_active = 0;
+        $reply->save();
+        return back();
     }
 
     /**
@@ -79,6 +97,7 @@ class AdminRepliesController extends Controller
      */
     public function destroy($id)
     {
-        //
+          Reply::findOrFail($id)->delete();
+          return back();
     }
 }

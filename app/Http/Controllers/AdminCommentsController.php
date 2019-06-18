@@ -86,7 +86,7 @@ class AdminCommentsController extends Controller
         //Check its status and reverse it
         $comment->is_active == 0 ? $comment->is_active = 1 : $comment->is_active = 0;
         $comment->save();
-        return redirect('/admin/comments');
+        return back();
     }
 
     /**
@@ -97,8 +97,8 @@ class AdminCommentsController extends Controller
      */
     public function destroy($id)
     {
-          //
-          comment::findOrFail($id)->delete();
-          return redirect('/admin/comments');
+       
+          Comment::findOrFail($id)->delete();
+          return back();
     }
 }

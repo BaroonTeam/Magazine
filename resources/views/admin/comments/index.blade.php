@@ -25,10 +25,10 @@
                 @foreach ($comments as $comment)
                     <tr>
                         <td>{{$comment->id}}</td>
-                        <td>{{$comment->article->article_title}}</a></td>
-                       <td>{{$comment->username}}</td>
+                        <td>{{$comment->article->article_title}}</td>
+                        <td>{{$comment->username}}</td>
                         <td>{{$comment->comment_content}}</td>
-                    <td><a href="/admin/replies">{{count($comment->replies)}}</a></td>
+                        <td><a {{ count($comment->replies)> 0 ? 'href=/admin/replies/'. $comment->id : '' }}  >{{count($comment->replies)}}</a></td>
                     
 
                         <td>
@@ -44,7 +44,7 @@
                             
                         </td>
                         <td>
-                        <form action="/admin/channels/{{$comment->id}}" method="POST">
+                        <form action="/admin/comments/{{$comment->id}}" method="POST">
                             {{csrf_field()}}
                             <input type="hidden" name="_method" value="DELETE">
                             <button type="submit" class="btn btn-danger"><i class="fas fa-times"></i> مسح</button>
