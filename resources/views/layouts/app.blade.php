@@ -68,12 +68,13 @@
                                     </div>
                                 </div>
                                 
-                                <!--breaking news-->
+                                
                                 
                                 
                                 
                             </div>
                         </div>
+                        @include('includes.messages')
 
      
             @yield('content')
@@ -82,7 +83,7 @@
     
     
 
-        <div class="sub-footer" style=" padding-bottom:-7.5rem">  <!-- sub footer -->
+        <div class="sub-footer">  <!-- sub footer -->
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12">

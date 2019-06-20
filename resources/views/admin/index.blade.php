@@ -30,13 +30,13 @@
                 @foreach($articles as $article)
                 <tr>
                   <td>{{$article->id}}</td>
-                  <td><a href="/channels/magazines/{{$article->magazine_id}}/articles/{{$article->id}}">{{$article->article_title}}</a></td>
+                  <td><a href="{{route('articles.show', ['magazine_id'=>$article->magazine_id, 'article'=>$article->id])}}">{{$article->article_title}}</a></td>
                   <td>القسم</td>
                   <td>{{$article->created_at->day}}/{{$article->created_at->month}}/{{$article->created_at->year}}</td>
                   <td>
 
                            
-                      <form action="/admin/articles/{{$article->id}}" method="POST">
+                      <form action="{{route('admin.articles.update', ['magazine_id'=>$article->magazine_id, 'article'=>$article->id])}}" method="POST">
                           {{csrf_field()}}
                           <input type="hidden" name="_method" value="PUT">
                           <button type="submit" class="btn btn-secondary">
@@ -46,7 +46,7 @@
                       
                   </td>
                   <td>     
-                      <form action="/admin/articles/{{$article->id}}" method="POST">
+                      <form action="{{'admin.articles.delete', ['article'=>$article->id]}}" method="POST">
                           {{csrf_field()}}
                           <input type="hidden" name="_method" value="DELETE">
                           <button type="submit" class="btn btn-danger">
@@ -69,7 +69,7 @@
               <h5>
                 <i class="fas fa-pencil-alt"></i> {{$channels->count()}}
               </h4>
-              <a href="/admin/channels" class="btn btn-outline-light btn-sm">عرض</a>
+              <a href="{{route('admin.channels.index')}}" class="btn btn-outline-light btn-sm">عرض</a>
             </div>
           </div>
 
@@ -79,7 +79,7 @@
               <h5>
                 <i class="fas fa-folder"></i> {{$magazines->count()}}
               </h4>
-              <a href="/admin/magazines" class="btn btn-outline-light btn-sm">عرض</a>
+              <a href="{{route('admin.magazines.index')}}" class="btn btn-outline-light btn-sm">عرض</a>
             </div>
           </div>
 
@@ -89,7 +89,7 @@
               <h5>
                 <i class="fas fa-users"></i> {{$users->count()}}
               </h4>
-              <a href="/admin/users" class="btn btn-outline-light btn-sm">عرض</a>
+              <a href="{{route('admin.users.index')}}" class="btn btn-outline-light btn-sm">عرض</a>
             </div>
           </div>
 
@@ -99,7 +99,7 @@
               <h5>
                 <i class="fas fa-users"></i> {{$articles->count()}}
               </h4>
-              <a href="/admin/articles" class="btn btn-outline-light btn-sm">عرض</a>
+              <a href="{{route('admin.articles.index')}}" class="btn btn-outline-light btn-sm">عرض</a>
             </div>
           </div>
 
@@ -107,20 +107,20 @@
               <div class="card-body">
                 <h3>عدد التعليقات</h3>
                 <h5>
-                  <i class="fas fa-users"></i> {{$users->count()}}
+                  <i class="fas fa-users"></i> {{$comments->count()}}
                 </h4>
-                <a href="/admin/comments" class="btn btn-outline-light btn-sm">عرض</a>
+                <a href="{{route('admin.comments.index')}}" class="btn btn-outline-light btn-sm">عرض</a>
               </div>
             </div>
 
             
             <div class="card text-center bg-secondary text-white mb-3">
               <div class="card-body">
-                <h3>عدد الردود</h3>
+                <h3>عدد الرعاة</h3>
                 <h5>
-                  <i class="fas fa-users"></i> {{$users->count()}}
+                  <i class="fas fa-users"></i> {{$sponsors->count()}}
                 </h4>
-                <a href="/admin/replies" class="btn btn-outline-light btn-sm">عرض</a>
+                <a href="{{route('admin.sponsors.index')}}" class="btn btn-outline-light btn-sm">عرض</a>
               </div>
             </div>
 
@@ -130,118 +130,20 @@
     </div>
   </section>
 
- 
-
-  <!-- MODALS -->
-
-  <!-- ADD POST MODAL -->
-  <div class="modal fade" id="addPostModal">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header bg-primary text-white">
-          <h5 class="modal-title">Add Post</h5>
-          <button class="close" data-dismiss="modal">
-            <span>&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="form-group">
-              <label for="title">Title</label>
-              <input type="text" class="form-control">
+     <!-- FOOTER -->
+     <footer id="main-footer" class="bg-dark text-white mt-5 p-5">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <p class="lead text-center">
+                Copyright &copy;
+                <span id="year"></span>
+                Blogen
+              </p>
             </div>
-            <div class="form-group">
-              <label for="category">Category</label>
-              <select class="form-control">
-                <option value="">Web Development</option>
-                <option value="">Tech Gadgets</option>
-                <option value="">Business</option>
-                <option value="">Health & Wellness</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="image">Upload Image</label>
-              <div class="custom-file">
-                <input type="file" class="custom-file-input" id="image">
-                <label for="image" class="custom-file-label">Choose File</label>
-              </div>
-              <small class="form-text text-muted">Max Size 3mb</small>
-            </div>
-            <div class="form-group">
-              <label for="body">Body</label>
-              <textarea name="editor1" class="form-control"></textarea>
-            </div>
-          </form>
+          </div>
         </div>
-        <div class="modal-footer">
-          <button class="btn btn-primary" data-dismiss="modal">Save Changes</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ADD CATEGORY MODAL -->
-  <div class="modal fade" id="addCategoryModal">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header bg-success text-white">
-          <h5 class="modal-title">Add Category</h5>
-          <button class="close" data-dismiss="modal">
-            <span>&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="form-group">
-              <label for="title">Title</label>
-              <input type="text" class="form-control">
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-success" data-dismiss="modal">Save Changes</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ADD USER MODAL -->
-  <div class="modal fade" id="addUserModal">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header bg-warning text-white">
-          <h5 class="modal-title">Add User</h5>
-          <button class="close" data-dismiss="modal">
-            <span>&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="form-group">
-              <label for="name">Name</label>
-              <input type="text" class="form-control">
-            </div>
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" class="form-control">
-            </div>
-            <div class="form-group">
-              <label for="password">Password</label>
-              <input type="password" class="form-control">
-            </div>
-            <div class="form-group">
-              <label for="password2">Confirm Password</label>
-              <input type="password" class="form-control">
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-warning" data-dismiss="modal">Save Changes</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
+      </footer>
 
 
 @endsection

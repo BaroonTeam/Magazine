@@ -12,23 +12,34 @@
                 </div>
         
             </div>
+
+
+
+
+
+
+{{-- ADDING NEW UI --}}
+<div class="container">
     <div class="row">
         @if(count($magazines) > 0)
-            @foreach ($magazines as $magazine)
-                <div class="col-md-4 my-3">
-                    <div class="card border border-secondary">
+        @foreach ($magazines as $magazine)
+            <div id="book1-trigger" class=" col-lg-4 col-md-6 text-center">
+                <div class="service-box">
                         <a href="{{route('magazines.show', ['channel_id'=>$channel_id, 'magazine'=>$magazine->id])}}">
-                        <img src="/images/{{$magazine->cover_path}}" alt="" class="img-fluid card-img">
-                        </a>
-                        <div class="card-body">
-                            <h3 class="card-title">{{$magazine->magazine_name}}</h3>
-                        </div>
-                    </div>
+                                <img src="/images/{{$magazine->cover_path}}" alt="" class="img-fluid card-img" style="width:200px; height:250px;">
+                        </a>         
+                        <h3 class="card-title">{{$magazine->magazine_name}}</h3>
+                        <br><br>
                 </div>
+            </div>
+ 
             @endforeach
-        @endif
+            @endif
+        </div>
+        <br>
     </div>
-</div>
-<div style="min-height:250px"></div>
+    <div style="min-height:250px"></div>
+
+    {{-- END --}}
     
 @endsection
