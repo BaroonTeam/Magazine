@@ -81,7 +81,7 @@ class AdminUsersController extends Controller
         //Checking if user is admin and reversing it
         $user->is_admin == 0 ? $user->is_admin = 1 : $user->is_admin = 0;
         $user->save();
-        return redirect('/admin/users');
+        return back();
     }
 
     /**
@@ -93,7 +93,9 @@ class AdminUsersController extends Controller
     public function destroy($id)
     {
         //
-        User::findOrFail($id)->delete();
-        return redirect('/admin/users');
+        $user = User::findOrFail($id);
+        $user->articles()->delete();
+        $user->delete();
+        return back();
     }
 }

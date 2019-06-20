@@ -81,7 +81,7 @@ class AdminChannelsController extends Controller
         //Check its status and reverse it
         $channel->is_active == 0 ? $channel->is_active = 1 : $channel->is_active = 0;
         $channel->save();
-        return redirect('/admin/channels');
+        return back();
     }
 
     /**
@@ -92,8 +92,9 @@ class AdminChannelsController extends Controller
      */
     public function destroy($id)
     {
+
         //
         Channel::findOrFail($id)->delete();
-        return redirect('/admin/channels');
+        return back();
     }
 }
